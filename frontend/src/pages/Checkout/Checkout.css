@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================================
+   MINIMALIST THEME — Checkout
+   Same tokens as ProductCard.css: pure white / black, hairline
+   borders, soft shadow on the card, no color accents.
+   ============================================================ */
+
+.checkout-page {
+
+    min-height: 100vh;
+    background: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.checkout-container {
+
+    padding: 50px 24px;
+
+}
+
+.checkout-container h1 {
+
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 32px;
+    color: #0A0A0A;
+
+}
+
+.checkout-card {
+
+    max-width: 640px;
+    margin: auto;
+    background: #FFFFFF;
+    padding: 36px;
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0 16px 32px rgba(10, 10, 10, 0.06);
+
+}
+
+.input-group {
+
+    margin-bottom: 20px;
+
+}
+
+.input-group label {
+
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #6B6B6B;
+
+}
+
+textarea,
+input,
+select {
+
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: 6px;
+    border: 1px solid #E0E0E0;
+    outline: none;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #0A0A0A;
+    background: #FAFAFA;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    box-sizing: border-box;
+
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+
+    border-color: #0A0A0A;
+    background: #FFFFFF;
+
+}
+
+textarea {
+
+    height: 120px;
+    resize: none;
+
+}
+
+.row {
+
+    display: flex;
+    gap: 16px;
+
+}
+
+.row input {
+
+    flex: 1;
+
+}
+
+.checkout-card button {
+
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #0A0A0A;
+    border-radius: 6px;
+    background: #0A0A0A;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+
+}
+
+.checkout-card button:hover {
+
+    background: #FFFFFF;
+    color: #0A0A0A;
+
+}
+
+.checkout-card button:active {
+
+    transform: scale(0.98);
+
+}
+
+@media (max-width: 600px) {
+
+    .checkout-container {
+
+        padding: 25px 15px;
+
+    }
+
+    .checkout-card {
+
+        padding: 26px 20px;
+
+    }
+
+    .row {
+
+        flex-direction: column;
+        gap: 0;
+
+    }
+
+}
+/* ============================================================
+   ORDER SUCCESS STATE
+   Styles the block displayed after successful order placement
+   ============================================================ */
+
+.order-success-box {
+    max-width: 400px;
+    margin: 100px auto;
+    text-align: center;
+    padding: 40px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0 16px 32px rgba(10, 10, 10, 0.06);
+}
+
+.success-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.order-success-box h1 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #0A0A0A;
+}
+
+.order-success-box p {
+    font-size: 14px;
+    color: #6B6B6B;
+    line-height: 1.6;
+}

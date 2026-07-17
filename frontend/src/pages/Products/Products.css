@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================================
+   MINIMALIST THEME — Products page
+   Same tokens as the rest of the app.
+   ============================================================ */
+
+.products-page {
+
+    min-height: 100vh;
+    background: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.products-header {
+
+    padding: 40px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5E5E5;
+
+}
+
+.products-header h1 {
+
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #0A0A0A;
+    margin: 0;
+
+}
+
+.products-header input {
+
+    width: 340px;
+    padding: 13px 20px;
+    border-radius: 999px;
+    border: 1px solid #E0E0E0;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #0A0A0A;
+    background: #FAFAFA;
+    transition: border-color 0.2s ease, background 0.2s ease;
+
+}
+
+.products-header input::placeholder {
+
+    color: #A6A6A6;
+
+}
+
+.products-header input:focus {
+
+    border-color: #0A0A0A;
+    background: #FFFFFF;
+
+}
+
+.products-container {
+
+    padding: 40px 50px;
+
+}
+
+.products-container h2 {
+
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: #6B6B6B;
+
+}
+
+@media (max-width: 700px) {
+
+    .products-header {
+
+        flex-direction: column;
+        gap: 18px;
+        padding: 30px 20px;
+
+    }
+
+    .products-header h1 {
+
+        font-size: 26px;
+
+    }
+
+    .products-header input {
+
+        width: 100%;
+
+    }
+
+    .products-container {
+
+        padding: 25px 20px;
+
+    }
+
+}

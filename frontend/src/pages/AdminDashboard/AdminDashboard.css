@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+.admin-page {
+
+    min-height: 100vh;
+    background: #FBF7EC;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.admin-layout {
+
+    display: flex;
+
+}
+
+.admin-content {
+
+    flex: 1;
+    min-width: 0;
+    padding: 44px 48px 60px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+/* Ambient butter glow, top-right */
+
+.admin-content::before {
+
+    content: "";
+    position: absolute;
+    top: -180px;
+    right: -160px;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(255, 239, 179, 0.9) 0%, rgba(255, 239, 179, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+
+}
+
+.admin-content > * {
+
+    position: relative;
+    z-index: 1;
+
+}
+
+/* ===================== HEADER ===================== */
+
+.admin-content h1 {
+
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #013E37;
+    letter-spacing: -0.015em;
+    margin: 0 0 6px 0;
+    animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+}
+
+.admin-subtitle {
+
+    font-size: 15px;
+    color: #4A6B65;
+    margin: 0 0 28px 0;
+    animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.05s;
+
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ===================== ADMIN PROFILE CARD ===================== */
+
+.admin-profile {
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #013E37;
+    border-radius: 18px;
+    padding: 20px 26px;
+    margin-bottom: 36px;
+    box-shadow: 0 12px 30px rgba(1, 62, 55, 0.18);
+    animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.1s;
+
+}
+
+.admin-avatar {
+
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: #FFEFB3;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 239, 179, 0.2);
+
+}
+
+.admin-profile h3 {
+
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFEFB3;
+    margin: 0 0 2px 0;
+
+}
+
+.admin-profile p {
+
+    font-size: 13px;
+    color: #A9C7C0;
+    margin: 0;
+
+}
+
+/* ===================== DASHBOARD TITLE ===================== */
+
+.dashboard-title {
+
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #013E37;
+    margin: 0 0 20px 0;
+    padding-left: 14px;
+    border-left: 4px solid #FFEFB3;
+
+}
+
+/* ===================== STAT CARDS ===================== */
+
+.dashboard-cards {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 44px;
+
+}
+
+.admin-card {
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #FFFFFF;
+    border-radius: 18px;
+    padding: 24px;
+    border: 1px solid #F0EBD9;
+    box-shadow: 0 4px 16px rgba(1, 62, 55, 0.05);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    animation: cardIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+}
+
+.admin-card:nth-child(1) { animation-delay: 0.12s; }
+.admin-card:nth-child(2) { animation-delay: 0.2s; }
+.admin-card:nth-child(3) { animation-delay: 0.28s; }
+.admin-card:nth-child(4) { animation-delay: 0.36s; }
+
+@keyframes cardIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+.admin-card:hover {
+
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(1, 62, 55, 0.12);
+    border-color: #FFEFB3;
+
+}
+
+.card-icon {
+
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: #FFEFB3;
+    border-radius: 14px;
+    transition: transform 0.25s ease;
+
+}
+
+.admin-card:hover .card-icon {
+
+    transform: rotate(-6deg) scale(1.06);
+
+}
+
+.admin-card h3 {
+
+    font-size: 12px;
+    font-weight: 600;
+    color: #6B8079;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 4px 0;
+
+}
+
+.admin-card p {
+
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #013E37;
+    margin: 0;
+
+}
+
+/* ===================== RECENT ACTIVITIES ===================== */
+
+.recent-section h2 {
+
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #013E37;
+    margin: 0 0 18px 0;
+    padding-left: 14px;
+    border-left: 4px solid #FFEFB3;
+
+}
+
+.activity-box {
+
+    background: #FFFFFF;
+    border-radius: 18px;
+    border: 1px solid #F0EBD9;
+    box-shadow: 0 4px 16px rgba(1, 62, 55, 0.05);
+    overflow: hidden;
+
+}
+
+.activity-box p {
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: #16262E;
+    padding: 16px 24px;
+    margin: 0;
+    border-bottom: 1px solid #F5F1E4;
+    transition: background 0.2s ease, padding-left 0.2s ease;
+
+}
+
+.activity-box p:last-child {
+
+    border-bottom: none;
+
+}
+
+.activity-box p::before {
+
+    content: "";
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #013E37;
+
+}
+
+.activity-box p:hover {
+
+    background: #FBF7EC;
+    padding-left: 30px;
+
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+@media (max-width: 900px) {
+
+    .admin-content {
+
+        padding: 32px 24px 48px;
+
+    }
+
+    .admin-content h1 {
+
+        font-size: 26px;
+
+    }
+
+    .dashboard-cards {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+@media (max-width: 560px) {
+
+    .dashboard-cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .admin-profile {
+
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+
+    }
+
+}
+
+/* ===================== REDUCED MOTION ===================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .admin-content h1,
+    .admin-subtitle,
+    .admin-profile,
+    .admin-card,
+    .card-icon {
+
+        animation: none !important;
+        transition: none !important;
+
+    }
+
+}

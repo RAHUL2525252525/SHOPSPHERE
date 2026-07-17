@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================================
+   LEDGER THEME — tokens
+   ============================================================ */
+.manage-orders-page{
+  --ink: #123832;
+  --ink-soft: #4d655f;
+  --green-900: #013e37;
+  --green-700: #0b544a;
+  --green-500: #146a5c;
+  --green-100: #e3efec;
+  --butter: #ffefb3;
+  --butter-dark: #f0d878;
+  --cream: #fffaf0;
+  --paper: #ffffff;
+  --line: #e7dfc4;
+  --danger: #a13d34;
+  --danger-soft: #f6e3df;
+  --warning: #c9891f;
+  --warning-soft: #fbecd2;
+  --success: #2f7d5c;
+  --success-soft: #e2f0e8;
+  --shipped: #2f6b8f;
+  --shipped-soft: #e1eef5;
+
+  min-height: 100vh;
+  background: var(--cream);
+  background-image:
+    radial-gradient(circle at 100% 0%, rgba(255,239,179,0.35), transparent 45%),
+    radial-gradient(circle at 0% 100%, rgba(1,62,55,0.06), transparent 40%);
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--ink);
+}
+
+.manage-orders-page .admin-layout{
+  display: flex;
+  align-items: flex-start;
+}
+
+.manage-orders{
+  flex: 1;
+  padding: 40px 44px 64px;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.orders-header{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--green-900);
+  position: relative;
+}
+
+.orders-header::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 64px;
+  height: 2px;
+  background: var(--butter-dark);
+}
+
+.orders-header h1{
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  color: var(--green-900);
+  margin: 0;
+}
+
+.orders-header h1::before{
+  content: "Admin / ";
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.orders-header span{
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: var(--green-900);
+  background: var(--butter);
+  border: 1px dashed var(--green-900);
+  border-radius: 999px;
+  padding: 8px 18px;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   TABLE SHELL
+   ============================================================ */
+.orders-table-container{
+  background: var(--paper);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 2px rgba(1,62,55,0.04), 0 12px 32px -20px rgba(1,62,55,0.25);
+  overflow: hidden;
+}
+
+.orders-table-container table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+.orders-table-container thead th{
+  background: var(--green-900);
+  color: var(--butter);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 16px 18px;
+  border-bottom: 3px solid var(--butter-dark);
+}
+
+.orders-table-container tbody tr:not(.order-details-row){
+  transition: background-color 0.15s ease;
+  border-bottom: 1px solid var(--line);
+}
+
+.orders-table-container tbody tr:not(.order-details-row):hover{
+  background: var(--green-100);
+}
+
+.orders-table-container tbody tr:last-child{
+  border-bottom: none;
+}
+
+.orders-table-container td{
+  padding: 15px 18px;
+  vertical-align: middle;
+  color: var(--ink);
+}
+
+.orders-table-container td:first-child{
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--green-700);
+}
+
+.orders-table-container td:nth-child(3){
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+/* empty state */
+.orders-table-container td[colspan]{
+  text-align: center;
+  padding: 56px 20px;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+}
+
+/* ============================================================
+   STATUS BADGE
+   ============================================================ */
+.status{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.status::before{
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status.Pending{ background: var(--warning-soft); color: var(--warning); }
+.status.Confirmed{ background: var(--green-100); color: var(--green-700); }
+.status.Shipped{ background: var(--shipped-soft); color: var(--shipped); }
+.status.Delivered{ background: var(--success-soft); color: var(--success); }
+.status.Cancelled{ background: var(--danger-soft); color: var(--danger); }
+
+/* ============================================================
+   STATUS SELECT
+   ============================================================ */
+.orders-table-container select{
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 10px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--green-900) 50%), linear-gradient(135deg, var(--green-900) 50%, transparent 50%);
+  background-position: calc(100% - 16px) center, calc(100% - 11px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 30px;
+}
+
+.orders-table-container select:hover{
+  border-color: var(--green-500);
+}
+
+.orders-table-container select:focus{
+  outline: none;
+  border-color: var(--green-900);
+  box-shadow: 0 0 0 3px var(--butter);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.view-order,
+.delete-order{
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: transform 0.12s ease, background-color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.view-order{
+  background: var(--green-900);
+  color: var(--butter);
+}
+
+.view-order:hover{
+  background: var(--green-700);
+  transform: translateY(-1px);
+}
+
+.delete-order{
+  background: transparent;
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.delete-order:hover{
+  background: var(--danger);
+  color: var(--paper);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   EXPANDED DETAILS — receipt card
+   ============================================================ */
+.order-details-row td{
+  padding: 0;
+  background: var(--cream);
+}
+
+.order-details-box{
+  animation: unfold 0.22s ease;
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: 24px 28px;
+  margin: 0 4px;
+  border-top: 2px dashed var(--butter-dark);
+  border-bottom: 2px dashed var(--butter-dark);
+  background:
+    repeating-linear-gradient(to bottom, transparent, transparent 27px, var(--line) 28px);
+  background-color: #fffdf6;
+}
+
+@keyframes unfold{
+  from{ opacity: 0; transform: translateY(-6px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+.order-address{
+  min-width: 240px;
+  flex: 1;
+}
+
+.order-address strong,
+.order-items strong{
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--green-900);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.order-address p{
+  margin: 4px 0;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.order-items{
+  flex: 2;
+  min-width: 280px;
+}
+
+.items-table{
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.items-table thead th{
+  background: var(--butter);
+  color: var(--green-900);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 9px 14px;
+  text-align: left;
+}
+
+.items-table tbody td{
+  padding: 10px 14px;
+  font-size: 13.5px;
+  border-top: 1px solid var(--line);
+}
+
+.item-name-cell{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.item-name-cell img{
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px){
+  .manage-orders{ padding: 24px 16px 40px; }
+  .orders-table-container{ overflow-x: auto; }
+  .orders-table-container table{ min-width: 760px; }
+  .order-details-box{ flex-direction: column; gap: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .order-details-box{ animation: none; }
+  .view-order:hover, .delete-order:hover{ transform: none; }
+}

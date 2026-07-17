@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================================
+   MINIMALIST THEME — Product grid section
+   Same tokens as the rest of the app.
+   ============================================================ */
+
+.product-grid-section {
+
+    padding: 40px 0;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.product-grid-title {
+
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    text-align: center;
+    margin-bottom: 32px;
+    color: #0A0A0A;
+
+}
+
+.product-grid {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    max-width: 1300px;
+    margin: 0 auto;
+
+}
+
+.no-products {
+
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #6B6B6B;
+    padding: 50px;
+
+}
+
+@media (max-width: 1024px) {
+
+    .product-grid {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .product-grid-title {
+
+        font-size: 22px;
+
+    }
+
+    .product-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+
+    }
+
+}
+
+@media (max-width: 460px) {
+
+    .product-grid {
+
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
+}

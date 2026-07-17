@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================================
+   MINIMALIST THEME — Dashboard
+   Same tokens as ProductCard.css / Checkout.css / Orders.css /
+   Wishlist.css / Cart.css. One font family (Inter) throughout,
+   dropping the Space Grotesk pairing — a mono system reads
+   cleaner with a single typeface doing every job.
+   ============================================================ */
+
+.dashboard-page {
+
+    background: #FFFFFF;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #0A0A0A;
+    padding-bottom: 60px;
+
+}
+
+/* ============================================================
+   CATEGORY QUICK LINKS
+   ============================================================ */
+
+.category-quick-links {
+
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    padding: 34px 24px 8px;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+}
+
+.category-quick-links::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+.category-pill {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 0;
+    width: 92px;
+    text-decoration: none;
+    background: #FFFFFF;
+    color: #0A0A0A;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 16px 10px;
+    border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.16s ease, box-shadow 0.2s ease;
+
+}
+
+.category-pill-icon {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #FAFAFA;
+    font-size: 16px;
+    transition: background 0.2s ease;
+
+}
+
+.category-pill:hover {
+
+    border-color: #0A0A0A;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(10, 10, 10, 0.08);
+
+}
+
+.category-pill.active {
+
+    background: #0A0A0A;
+    border-color: #0A0A0A;
+    color: #FFFFFF;
+
+}
+
+.category-pill.active .category-pill-icon {
+
+    background: rgba(255, 255, 255, 0.15);
+
+}
+
+.category-pill:active {
+
+    transform: translateY(0);
+
+}
+
+/* ============================================================
+   FEATURED SECTION
+   ============================================================ */
+
+.featured-section {
+
+    max-width: 1200px;
+    margin: 56px auto 0;
+    padding: 0 24px;
+    text-align: center;
+
+}
+
+.featured-section h1 {
+
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: -0.4px;
+    color: #0A0A0A;
+    margin: 0 0 12px;
+    position: relative;
+    display: inline-block;
+
+}
+
+.featured-section h1::after {
+
+    content: "";
+    display: block;
+    width: 56px;
+    height: 3px;
+    margin: 12px auto 0;
+    border-radius: 2px;
+    background: #0A0A0A;
+
+}
+
+.featured-section > p {
+
+    font-size: 15px;
+    color: #6B6B6B;
+    margin: 0 0 36px;
+    font-weight: 500;
+
+}
+
+/* ============================================================
+   LOADING STATE — radar ping spinner
+   ============================================================ */
+
+.state-loading {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 70px 20px;
+
+}
+
+.soda-spinner {
+
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    background: #0A0A0A;
+
+}
+
+.soda-spinner::before,
+.soda-spinner::after {
+
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid #0A0A0A;
+    animation: radar-ping 1.8s ease-out infinite;
+    opacity: 0;
+
+}
+
+.soda-spinner::after {
+
+    animation-delay: 0.9s;
+
+}
+
+.state-loading p {
+
+    font-weight: 600;
+    font-size: 14px;
+    color: #6B6B6B;
+    margin: 0;
+    letter-spacing: 0.3px;
+
+}
+
+@keyframes radar-ping {
+
+    0% { transform: scale(0.6); opacity: 0.8; }
+    100% { transform: scale(2.1); opacity: 0; }
+
+}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+
+.state-empty {
+
+    padding: 70px 20px;
+    text-align: center;
+
+}
+
+.state-empty p {
+
+    font-weight: 600;
+    font-size: 17px;
+    color: #6B6B6B;
+    margin: 0;
+
+}
+
+/* ============================================================
+   OFFER SECTION — inverted panel, terminal label kept in mono
+   ============================================================ */
+
+.offer-section {
+
+    max-width: 1200px;
+    margin: 60px auto 0;
+    padding: 0 24px;
+
+}
+
+.offer-card {
+
+    position: relative;
+    background: #0A0A0A;
+    border-radius: 10px;
+    padding: 46px 40px;
+    text-align: center;
+    overflow: hidden;
+
+}
+
+.offer-card::before {
+
+    content: "SALE_ACTIVE";
+    position: absolute;
+    top: 20px;
+    left: 24px;
+    font-family: 'Inter', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    color: rgba(255, 255, 255, 0.55);
+    display: flex;
+    align-items: center;
+
+}
+
+.offer-card::after {
+
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 116px;
+    width: 6px;
+    height: 12px;
+    background: #FFFFFF;
+    animation: cursor-blink 1s steps(1) infinite;
+
+}
+
+@keyframes cursor-blink {
+
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+
+}
+
+.offer-card h2 {
+
+    font-weight: 700;
+    font-size: 28px;
+    color: #FFFFFF;
+    margin: 18px 0 10px;
+
+}
+
+.offer-card p {
+
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0 0 26px;
+    font-weight: 500;
+
+}
+
+.offer-card a {
+
+    display: inline-block;
+    background: #FFFFFF;
+    color: #0A0A0A;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 13px 32px;
+    border-radius: 6px;
+    border: 1px solid #FFFFFF;
+    transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+
+}
+
+.offer-card a:hover {
+
+    background: transparent;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 640px) {
+
+    .featured-section h1 { font-size: 24px; }
+    .offer-card { padding: 42px 22px 30px; }
+    .offer-card h2 { font-size: 22px; }
+    .offer-card::before { top: 18px; left: 18px; }
+    .offer-card::after { top: 20px; left: 110px; }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .soda-spinner::before,
+    .soda-spinner::after { animation: none; opacity: 0.6; }
+    .offer-card::after { animation: none; }
+    .category-pill:hover,
+    .offer-card a:hover { transform: none; }
+
+}

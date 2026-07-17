@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================================
+   MINIMALIST THEME — Banner (scoped so it drops in standalone
+   even before Dashboard.css loads)
+   Solid black background — the banner is a hero moment, so it
+   gets the same "inverted" treatment as the offer card / cart
+   summary panel. One font (Inter) throughout, radar rings kept
+   as the loader-echoing signature but in white/gray.
+   ============================================================ */
+
+.banner {
+
+    position: relative;
+    overflow: hidden;
+    background: #0A0A0A;
+    padding: 90px 24px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter', -apple-system, sans-serif;
+
+}
+
+/* radar-ping rings, echoing the loader signature used elsewhere on the page */
+
+.banner::before,
+.banner::after {
+
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    transform: translateY(-50%);
+    pointer-events: none;
+
+}
+
+.banner::after {
+
+    width: 220px;
+    height: 220px;
+    border-color: rgba(255, 255, 255, 0.2);
+
+}
+
+.banner-content {
+
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+    text-align: center;
+
+}
+
+.banner-content h1 {
+
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 1.15;
+    letter-spacing: -0.6px;
+    color: #FFFFFF;
+    margin: 0 0 16px;
+
+}
+
+.banner-content h1::after {
+
+    content: "";
+    display: block;
+    width: 56px;
+    height: 3px;
+    margin: 18px auto 0;
+    border-radius: 2px;
+    background: #FFFFFF;
+
+}
+
+.banner-content p {
+
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0 0 32px;
+    font-weight: 500;
+
+}
+
+.banner-btn {
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #0A0A0A;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    padding: 15px 36px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+
+}
+
+.banner-btn:hover {
+
+    background: transparent;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+
+}
+
+.banner-btn:active {
+
+    transform: translateY(0);
+
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 640px) {
+
+    .banner { padding: 64px 20px; }
+    .banner-content h1 { font-size: 30px; }
+    .banner::before { width: 240px; height: 240px; right: -20%; }
+    .banner::after { width: 160px; height: 160px; right: -10%; }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .banner-btn:hover { transform: none; }
+
+}

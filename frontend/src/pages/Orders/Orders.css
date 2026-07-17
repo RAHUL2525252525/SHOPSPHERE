@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================================
+   MINIMALIST THEME — Orders
+   Same tokens as ProductCard.css / Checkout.css / OrderSuccess.css:
+   pure white / black, hairline borders, soft shadow, no color
+   accents. Status badges are the one place meaning is encoded —
+   done with weight/fill instead of color.
+   ============================================================ */
+
+.orders-page {
+
+    min-height: 100vh;
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 48px 24px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.orders-container {
+
+    max-width: 900px;
+    margin: 0 auto;
+
+}
+
+.orders-container h1 {
+
+    font-size: 28px;
+    font-weight: 700;
+    color: #0A0A0A;
+    margin-bottom: 28px;
+    letter-spacing: -0.3px;
+
+}
+
+/* Loading state */
+
+.state-loading {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 80px 0;
+    color: #0A0A0A;
+
+}
+
+.state-loading p {
+
+    font-size: 14px;
+    font-weight: 500;
+    color: #6B6B6B;
+
+}
+
+.soda-spinner {
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #E5E5E5;
+    border-top-color: #0A0A0A;
+    animation: soda-spin 0.8s linear infinite;
+
+}
+
+@keyframes soda-spin {
+
+    to { transform: rotate(360deg); }
+
+}
+
+/* Empty state */
+
+.empty-orders {
+
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
+    box-shadow: 0 16px 32px rgba(10, 10, 10, 0.06);
+    text-align: center;
+    padding: 56px 24px;
+
+}
+
+.empty-orders h2 {
+
+    font-size: 18px;
+    font-weight: 700;
+    color: #0A0A0A;
+    margin-bottom: 8px;
+
+}
+
+.empty-orders p {
+
+    font-size: 14px;
+    color: #6B6B6B;
+
+}
+
+/* Orders list */
+
+.orders-list {
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+}
+
+.order-card {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
+    padding: 20px 24px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+}
+
+.order-card:hover {
+
+    border-color: #0A0A0A;
+    box-shadow: 0 12px 24px rgba(10, 10, 10, 0.08);
+    transform: translateY(-2px);
+
+}
+
+.order-card h3 {
+
+    font-size: 15px;
+    font-weight: 600;
+    color: #0A0A0A;
+    margin-bottom: 6px;
+
+}
+
+.order-card p {
+
+    font-size: 13px;
+    color: #6B6B6B;
+    margin: 2px 0;
+
+}
+
+/* Status badges — encoded with fill weight, not color */
+
+.order-status {
+
+    flex-shrink: 0;
+
+}
+
+.status-badge {
+
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid #0A0A0A;
+
+}
+
+.status-badge.placed {
+
+    background: #FFFFFF;
+    color: #0A0A0A;
+
+}
+
+.status-badge.shipped {
+
+    background: #F4F4F4;
+    color: #0A0A0A;
+    border-color: #6B6B6B;
+
+}
+
+.status-badge.delivered {
+
+    background: #0A0A0A;
+    color: #FFFFFF;
+
+}
+
+.status-badge.cancelled {
+
+    background: #FFFFFF;
+    color: #6B6B6B;
+    border-color: #D0D0D0;
+    text-decoration: line-through;
+
+}
+
+@media (max-width: 600px) {
+
+    .order-card {
+
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+    .order-status {
+
+        align-self: flex-start;
+
+    }
+
+}

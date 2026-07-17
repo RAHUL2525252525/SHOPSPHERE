@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ============================================================
+   LEDGER THEME — tokens
+   ============================================================ */
+.manage-products-page{
+  --ink: #123832;
+  --ink-soft: #4d655f;
+  --green-900: #013e37;
+  --green-700: #0b544a;
+  --green-500: #146a5c;
+  --green-100: #e3efec;
+  --butter: #ffefb3;
+  --butter-dark: #f0d878;
+  --cream: #fffaf0;
+  --paper: #ffffff;
+  --line: #e7dfc4;
+  --danger: #a13d34;
+  --danger-soft: #f6e3df;
+
+  min-height: 100vh;
+  background: var(--cream);
+  background-image:
+    radial-gradient(circle at 100% 0%, rgba(255,239,179,0.35), transparent 45%),
+    radial-gradient(circle at 0% 100%, rgba(1,62,55,0.06), transparent 40%);
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--ink);
+}
+
+.manage-products-page .admin-layout{
+  display: flex;
+  align-items: flex-start;
+}
+
+.manage-products{
+  flex: 1;
+  padding: 40px 44px 64px;
+}
+
+.manage-products h1{
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  color: var(--green-900);
+  margin: 0 0 28px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--green-900);
+  position: relative;
+}
+
+.manage-products h1::before{
+  content: "Admin / ";
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.manage-products h1::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 64px;
+  height: 2px;
+  background: var(--butter-dark);
+}
+
+/* ============================================================
+   TABLE SHELL
+   ============================================================ */
+.product-table-container{
+  background: var(--paper);
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 2px rgba(1,62,55,0.04), 0 12px 32px -20px rgba(1,62,55,0.25);
+  overflow: hidden;
+}
+
+.product-table-container table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+.product-table-container thead th{
+  background: var(--green-900);
+  color: var(--butter);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 16px 18px;
+  border-bottom: 3px solid var(--butter-dark);
+}
+
+.product-table-container tbody tr{
+  transition: background-color 0.15s ease;
+  border-bottom: 1px solid var(--line);
+}
+
+.product-table-container tbody tr:hover{
+  background: var(--green-100);
+}
+
+.product-table-container tbody tr:last-child{
+  border-bottom: none;
+}
+
+.product-table-container td{
+  padding: 13px 18px;
+  vertical-align: middle;
+  color: var(--ink);
+}
+
+.product-table-container td:nth-child(5),
+.product-table-container td:nth-child(6){
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.product-table-container td[colspan]{
+  text-align: center;
+  padding: 56px 20px;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+}
+
+/* ============================================================
+   PRODUCT IMAGES
+   ============================================================ */
+.multi-images{
+  display: flex;
+  gap: 6px;
+}
+
+.multi-images img{
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--cream);
+  transition: transform 0.15s ease;
+}
+
+.multi-images img:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px -6px rgba(1,62,55,0.3);
+}
+
+/* ============================================================
+   STATUS TOGGLE (Active / Inactive)
+   ============================================================ */
+.active-btn,
+.inactive-btn{
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  padding: 7px 16px 7px 30px;
+  border-radius: 999px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+.active-btn::before,
+.inactive-btn::before{
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.active-btn{
+  background: #e2f0e8;
+  color: #2f7d5c;
+}
+.active-btn::before{ background: #2f7d5c; }
+.active-btn:hover{ background: #d3e8dc; }
+
+.inactive-btn{
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+.inactive-btn::before{ background: var(--danger); }
+.inactive-btn:hover{ background: #efd3cd; }
+
+/* ============================================================
+   ACTIONS
+   ============================================================ */
+.actions{
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn,
+.delete-btn{
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: transform 0.12s ease, background-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.edit-btn{
+  background: var(--butter);
+  color: var(--green-900);
+  border-color: var(--butter-dark);
+}
+
+.edit-btn:hover{
+  background: var(--butter-dark);
+  transform: translateY(-1px);
+}
+
+.delete-btn{
+  background: transparent;
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.delete-btn:hover{
+  background: var(--danger);
+  color: var(--paper);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px){
+  .manage-products{ padding: 24px 16px 40px; }
+  .product-table-container{ overflow-x: auto; }
+  .product-table-container table{ min-width: 820px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .edit-btn:hover, .delete-btn:hover, .multi-images img:hover{ transform: none; }
+}

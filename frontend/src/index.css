@@ -1,0 +1,192 @@
+* {
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+
+html {
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+body {
+
+    font-family:
+    "Poppins",
+    Arial,
+    sans-serif;
+
+    background:#f8f9fc;
+
+    color:#222;
+
+}
+
+
+
+a {
+
+    text-decoration:none;
+
+}
+
+
+
+button {
+
+    cursor:pointer;
+
+}
+
+
+
+img {
+
+    max-width:100%;
+
+}
+
+
+
+ul {
+
+    list-style:none;
+
+}
+
+
+
+.container {
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+
+
+.page {
+
+    min-height:80vh;
+
+    padding:40px 0;
+
+}
+
+
+
+.title {
+
+    font-size:32px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.btn-primary {
+
+    background:#6c5ce7;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+}
+
+
+
+.btn-primary:hover {
+
+    background:#5848d6;
+
+}
+
+
+
+input,
+textarea,
+select {
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+}
+
+
+
+.card {
+
+    background:white;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
+
+}
+
+
+
+::-webkit-scrollbar {
+
+    width:8px;
+
+}
+
+
+
+::-webkit-scrollbar-thumb {
+
+    background:#6c5ce7;
+
+    border-radius:10px;
+
+}
+
+
+
+@media(max-width:768px){
+
+
+    .container {
+
+        width:95%;
+
+    }
+
+
+    .title {
+
+        font-size:26px;
+
+    }
+
+
+}
