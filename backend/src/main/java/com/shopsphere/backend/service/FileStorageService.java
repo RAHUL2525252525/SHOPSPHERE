@@ -22,11 +22,6 @@ public class FileStorageService {
     @Value("${app.base-url}")
     private String baseUrl;
 
-    /**
-     * Saves the given file under the upload directory with a unique name
-     * and returns a public URL such as http://localhost:8080/uploads/xxx.jpg
-     * Returns null if no file was supplied.
-     */
     public String store(MultipartFile file) {
         if (file == null || file.isEmpty()) {
             return null;
