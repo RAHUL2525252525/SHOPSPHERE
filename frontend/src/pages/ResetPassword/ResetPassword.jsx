@@ -82,7 +82,7 @@ function ResetPassword(){
 
             const response = await axios.post(
 
-                `http://localhost:8080/api/auth/reset-password/${token}`,
+                `https://shopsphere-backend-5umn.onrender.com/api/auth/reset-password/${token}`,
 
                 {
 
