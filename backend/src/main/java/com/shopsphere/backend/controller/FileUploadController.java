@@ -34,7 +34,7 @@ public class FileUploadController {
 
         file.transferTo(new File(UPLOAD_DIR + fileName));
 
-        return "http://localhost:8080/uploads/products/" + fileName;
+        return "https://shopsphere-backend-5umn.onrender.com/uploads/products/" + fileName;
 
     }
 
