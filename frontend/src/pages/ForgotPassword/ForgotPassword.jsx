@@ -63,7 +63,7 @@ function ForgotPassword() {
 
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:8080/api/auth/forgot-password", {
+      const response = await axios.post("https://shopsphere-backend-5umn.onrender.com/api/auth/forgot-password", {
         email,
         newPassword,
       });
