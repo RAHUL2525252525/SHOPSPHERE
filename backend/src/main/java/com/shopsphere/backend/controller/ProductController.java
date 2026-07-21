@@ -197,7 +197,7 @@ public class ProductController {
 
 
 
-        return "http://localhost:8080/uploads/products/"
+        return "https://shopsphere-backend-5umn.onrender.com/uploads/products/"
                 +fileName;
 
 
