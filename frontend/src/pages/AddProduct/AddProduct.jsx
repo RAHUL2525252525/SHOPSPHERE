@@ -84,7 +84,7 @@ try{
 
 
 const response=await fetch(
-"http://localhost:8080/api/products/upload",
+"https://shopsphere-backend-5umn.onrender.com/api/products/upload",
 {
 method:"POST",
 body:formData
