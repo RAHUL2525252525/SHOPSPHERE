@@ -32,7 +32,7 @@
     z-index: 0;
 
     background:
-        linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88)),
+        linear-gradient(180deg, rgba(10,8,6,0.86) 0%, rgba(10,8,6,0.92) 60%, rgba(10,8,6,0.96) 100%),
         url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=2000&q=80");
 
     background-size: cover;
@@ -60,6 +60,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    padding: 40px 28px 32px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
 /* ============ BRAND HEADER FRAME ============ */
@@ -82,7 +88,7 @@
 
 .header-signal-arches span {
     display: block;
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(249, 99, 50, 0.55);
     border-bottom: none;
     border-left: none;
     border-right: none;
@@ -134,17 +140,18 @@
     margin-bottom: 16px;
     display: flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 30px;
     padding: 2px 6px;
-    transition: background-color 0.2s, border-color 0.2s;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     backdrop-filter: blur(4px);
 }
 
 .input-pill-field:focus-within {
-    background-color: rgba(255, 255, 255, 0.22) !important;
-    border-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.16) !important;
+    border-color: var(--now-orange);
+    box-shadow: 0 0 0 3px rgba(249, 99, 50, 0.18);
 }
 
 .pill-field-icon {
@@ -154,7 +161,7 @@
     width: 38px;
     height: 38px;
     color: var(--now-white);
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 /* Precision alignment: line-height = structural height forces typing perfectly in middle */
@@ -176,7 +183,7 @@
 }
 
 .input-pill-field input::placeholder {
-    color: rgba(255, 255, 255, 0.65) !important;
+    color: rgba(255, 255, 255, 0.55) !important;
     line-height: 44px !important; 
 }
 
@@ -197,11 +204,12 @@
     background: none;
     border: none;
     color: var(--now-white);
-    opacity: 0.65;
+    opacity: 0.6;
     cursor: pointer;
     padding-right: 14px;
     display: flex;
     align-items: center;
+    transition: opacity 0.2s ease;
 }
 
 .password-eye-toggle:hover {
@@ -220,18 +228,27 @@
     font-size: 12.5px;
     font-weight: 700;
     letter-spacing: 0.05em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
     margin-top: 10px;
-    box-shadow: 0 4px 15px rgba(249, 99, 50, 0.35);
+    box-shadow: 0 8px 20px rgba(249, 99, 50, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .submit-pill-action:hover {
     background-color: var(--now-orange-hover);
+    box-shadow: 0 10px 24px rgba(249, 99, 50, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
 }
 
 .submit-pill-action:active {
     transform: scale(0.99);
+    box-shadow: 0 4px 12px rgba(249, 99, 50, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.submit-pill-action:focus-visible {
+    outline: none;
+    box-shadow: 0 8px 20px rgba(249, 99, 50, 0.4), 0 0 0 3px rgba(255, 255, 255, 0.5);
 }
 
 /* ============ UTILITY LINK ROW ============ */
@@ -252,11 +269,13 @@
     font-weight: 700;
     letter-spacing: 0.05em;
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 0.75;
+    transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 .action-sub-link:hover {
     opacity: 1;
+    color: var(--now-orange-hover);
 }
 
 /* ============ RESPONSIVE MEDIA WRITING ============ */
@@ -264,5 +283,9 @@
     /* Slightly less margin for brand title on tight viewports */
     .brand-header-group {
         margin-bottom: 28px;
+    }
+
+    .theme-auth-form {
+        padding: 32px 22px 26px;
     }
 }
