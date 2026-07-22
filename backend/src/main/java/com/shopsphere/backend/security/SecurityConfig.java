@@ -36,21 +36,20 @@ public class SecurityConfig {
                 .anyRequest().permitAll() // keep everything else open for now
             )
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-
         return http.build();
     }
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of(
+        config.setAllowedOriginPatterns(List.of(
             "http://localhost:5173",
-            "https://shopsphere-8m8f.vercel.app"
+            "https://shopsphere-8m8f.vercel.app",
+            "https://shopsphere-8m8f-*.vercel.app"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
-
         return request -> config;
     }
 }
