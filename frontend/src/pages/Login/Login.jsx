@@ -69,7 +69,12 @@ function Login() {
         navigate("/dashboard");
       }
     } catch (err) {
-      setError(err.response?.data?.message || "Invalid email or password");
+      const serverMessage = err.response?.data;
+      setError(
+        typeof serverMessage === "string"
+          ? serverMessage
+          : serverMessage?.message || "Invalid email or password"
+      );
     }
   };
 
