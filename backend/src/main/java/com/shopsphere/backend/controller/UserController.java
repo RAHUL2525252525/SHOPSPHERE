@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.shopsphere.backend.entity.User;
 import com.shopsphere.backend.repository.UserRepository;
 import com.shopsphere.backend.service.AuthService;
+import com.shopsphere.backend.security.JwtUtil;
 
 @RestController
 @RequestMapping("/api/users")
@@ -19,6 +20,9 @@ public class UserController {
 
     @Autowired
     private AuthService authService;
+
+    @Autowired
+    private JwtUtil jwtUtil;
 
     // Register
     @PostMapping("/register")
@@ -36,7 +40,16 @@ public class UserController {
     public ResponseEntity<?> login(@RequestBody User loginUser) {
         try {
             User user = authService.login(loginUser.getEmail(), loginUser.getPassword());
-            return ResponseEntity.ok(user);
+            String token = jwtUtil.generateToken(user.getEmail(), user.getRole());
+
+            Map<String, Object> response = new HashMap<>();
+            response.put("token", token);
+            response.put("id", user.getId());
+            response.put("name", user.getName());
+            response.put("email", user.getEmail());
+            response.put("role", user.getRole());
+
+            return ResponseEntity.ok(response);
         } catch (RuntimeException e) {
             return ResponseEntity.status(401).body(e.getMessage());
         }
@@ -100,27 +113,4 @@ public class UserController {
         response.put("fullName", user.getName());
         response.put("email", user.getEmail());
         response.put("role", user.getRole());
-        return ResponseEntity.ok(response);
-    }
-
-    // Update User (Admin - by id, includes password/role)
-    @PutMapping("/update/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
-        User user = userRepository.findById(id).orElse(null);
-        if (user == null) {
-            return null;
-        }
-        user.setName(updatedUser.getName());
-        user.setEmail(updatedUser.getEmail());
-        user.setPassword(updatedUser.getPassword());
-        user.setRole(updatedUser.getRole());
-        return userRepository.save(user);
-    }
-
-    // Delete User
-    @DeleteMapping("/delete/{id}")
-    public String deleteUser(@PathVariable Long id) {
-        userRepository.deleteById(id);
-        return "User Deleted Successfully";
-    }
-}
+        return
