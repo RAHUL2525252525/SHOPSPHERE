@@ -44,7 +44,12 @@ function Register() {
       setTimeout(() => navigate("/login"), 1000);
     } catch (error) {
       setIsError(true);
-      setMessage("Registration failed");
+      const serverMessage = error.response?.data;
+      setMessage(
+        typeof serverMessage === "string"
+          ? serverMessage
+          : serverMessage?.message || "Registration failed"
+      );
     }
   };
 
