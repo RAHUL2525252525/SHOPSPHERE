@@ -113,4 +113,27 @@ public class UserController {
         response.put("fullName", user.getName());
         response.put("email", user.getEmail());
         response.put("role", user.getRole());
-        return
+        return ResponseEntity.ok(response);
+    }
+
+    // Update User (Admin - by id, includes password/role)
+    @PutMapping("/update/{id}")
+    public User updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+        User user = userRepository.findById(id).orElse(null);
+        if (user == null) {
+            return null;
+        }
+        user.setName(updatedUser.getName());
+        user.setEmail(updatedUser.getEmail());
+        user.setPassword(updatedUser.getPassword());
+        user.setRole(updatedUser.getRole());
+        return userRepository.save(user);
+    }
+
+    // Delete User
+    @DeleteMapping("/delete/{id}")
+    public String deleteUser(@PathVariable Long id) {
+        userRepository.deleteById(id);
+        return "User Deleted Successfully";
+    }
+}
