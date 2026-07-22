@@ -12,7 +12,10 @@ import com.shopsphere.backend.service.AuthService;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = {"http://localhost:5173", "https://shopsphere-vnpx.vercel.app"})
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://shopsphere-8m8f.vercel.app"
+})
 public class UserController {
 
     @Autowired
