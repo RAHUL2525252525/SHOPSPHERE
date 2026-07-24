@@ -36,6 +36,7 @@ public class SecurityConfig {
                 .anyRequest().permitAll() // keep everything else open for now
             )
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
 
@@ -45,7 +46,8 @@ public class SecurityConfig {
         config.setAllowedOriginPatterns(List.of(
             "http://localhost:5173",
             "https://shopsphere-8m8f.vercel.app",
-            "https://shopsphere-8m8f-*.vercel.app"
+            "https://shopsphere-8m8f-*.vercel.app",
+            "https://shopsphere-*-rahul2525252525s-projects.vercel.app"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
