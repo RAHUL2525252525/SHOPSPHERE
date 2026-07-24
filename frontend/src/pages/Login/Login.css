@@ -210,9 +210,11 @@
 
 /* ============ SOLID ORANGE SUBMIT PILL ============ */
 .submit-pill-action {
-    .submit-pill-action {
-      background-color: #f96332;
-  }
+    background: red !important;
+    color: yellow !important;
+    width: 100%;
+    height: 60px;
+}
 
 .submit-pill-action:hover {
     background-color: #083f38;
