@@ -214,7 +214,7 @@
     padding: 15px;
     border: none;
     border-radius: 30px;
-    background-color: var(--now-orange);
+    background-color: #1a1a1a;
     color: var(--now-white);
     font-family: inherit;
     font-size: 12.5px;
@@ -223,11 +223,11 @@
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
     margin-top: 10px;
-    box-shadow: 0 4px 15px rgba(249, 99, 50, 0.35);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
 }
 
 .submit-pill-action:hover {
-    background-color: var(--now-orange-hover);
+    background-color: #2e2e2e;
 }
 
 .submit-pill-action:active {
