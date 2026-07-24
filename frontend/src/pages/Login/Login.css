@@ -210,9 +210,9 @@
 
 /* ============ SOLID ORANGE SUBMIT PILL ============ */
 .submit-pill-action {
-    background-color: #ff8b00;
+    background-color: #0b544a;
     width: 100%;
-    color: #0b544a;
+    color: white;
     cursor: pointer;
     border: none;
     border-radius: 30px;
@@ -220,14 +220,12 @@
     padding: 14px;
     font-weight: 700;
     letter-spacing: 0.05em;
-    cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
-    margin-top: 10px;
-    box-shadow: 0 4px 15px rgba(249, 99, 50, 0.35);   /* was rgba(0,0,0,0.35) */
+    box-shadow: 0 4px 15px rgba(11, 84, 74, 0.35);
 }
 
 .submit-pill-action:hover {
-    background-color: var(--now-orange-hover);   /* was #2e2e2e */
+    background-color: #083f38;
 }
 
 .submit-pill-action:active {
