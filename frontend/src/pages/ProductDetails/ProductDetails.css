@@ -368,3 +368,38 @@
     }
 
 }
+/* ============================================================
+   DISCOUNT BADGE — sits beside the price, next to the struck
+   original price. Outlined (not filled) so it doesn't visually
+   compete with the black category pill above it, but still
+   reads as an accent worth noticing.
+   ============================================================ */
+
+.details-discount-badge {
+
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Inter', monospace;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #0A0A0A !important;
+    background: #FFFFFF;
+    border: 1.5px solid #0A0A0A;
+    padding: 5px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.3px;
+    line-height: 1;
+    white-space: nowrap;
+
+}
+
+@media (max-width: 700px) {
+
+    .details-price {
+
+        flex-wrap: wrap;
+        row-gap: 8px;
+
+    }
+
+}
