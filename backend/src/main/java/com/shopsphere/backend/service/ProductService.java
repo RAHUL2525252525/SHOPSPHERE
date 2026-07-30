@@ -15,106 +15,66 @@ public class ProductService {
 
     // Add Product
     public Product addProduct(Product product) {
-
         calculatePrice(product);
-
         return repository.save(product);
-
     }
 
     // Get All Products
     public List<Product> getAllProducts() {
-
         return repository.findAll();
-
     }
 
     // Get Product By Id
     public Product getProduct(Long id) {
-
         return repository.findById(id).orElse(null);
-
     }
 
     // Search Products
     public List<Product> searchProducts(String keyword) {
-
         return repository.findByNameContainingIgnoreCase(keyword);
-
     }
 
     // Category Products
     public List<Product> getCategoryProducts(String category) {
-
         return repository.findByCategory(category);
-
     }
 
     // Brand Products
     public List<Product> getBrandProducts(String brand) {
-
         return repository.findByBrand(brand);
-
     }
 
     // Update Product
     public Product updateProduct(Long id, Product product) {
-
         Product old = repository.findById(id).orElse(null);
-
         if (old == null) {
-
             return null;
-
         }
-
         product.setId(id);
-
         calculatePrice(product);
-
         return repository.save(product);
-
     }
 
     // Delete Product
     public void deleteProduct(Long id) {
-
         repository.deleteById(id);
-
     }
 
-    // Auto Calculate Price
+    // Auto Calculate Final Price (GST applied on top of sellingPrice)
+    // NOTE: discount is now trusted as sent from the admin form (AddProduct.jsx),
+    // since the frontend already computes sellingPrice from brandPrice + discount + gst.
+    // We no longer recalculate discount here — that was overwriting the admin's
+    // entered value with a wrong number once GST was factored back in.
     private void calculatePrice(Product product) {
-
-        if (product.getBrandPrice() != null &&
-                product.getSellingPrice() != null &&
-                product.getBrandPrice() > 0) {
-
-            double discount =
-                    ((product.getBrandPrice() -
-                            product.getSellingPrice())
-                            / product.getBrandPrice()) * 100;
-
-            product.setDiscount(
-                    Math.round(discount * 100.0) / 100.0
-            );
-
-        }
-
         if (product.getSellingPrice() != null &&
                 product.getGst() != null) {
-
             double finalPrice =
                     product.getSellingPrice() +
                             ((product.getSellingPrice()
                                     * product.getGst()) / 100);
-
             product.setFinalPrice(
                     Math.round(finalPrice * 100.0) / 100.0
             );
-
         }
-
     }
-
 }
