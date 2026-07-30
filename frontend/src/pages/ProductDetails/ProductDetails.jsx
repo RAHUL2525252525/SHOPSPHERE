@@ -404,6 +404,20 @@ function ProductDetails(){
                         }
 
 
+                        {
+
+                            product.discount > 0 &&
+
+
+                            <span className="details-discount-badge">
+
+                                {product.discount}% OFF
+
+                            </span>
+
+                        }
+
+
                     </div>
 
 
