@@ -1,12 +1,22 @@
+# Stage 1: build the frontend
+FROM node:20 AS frontend
+WORKDIR /frontend
+COPY frontend/package*.json ./
+RUN npm install
+COPY frontend/ .
+RUN npm run build
+
+# Stage 2: build the backend (keep your existing maven image line if it differs)
 FROM maven:3.9-eclipse-temurin-17 AS build
 WORKDIR /app
 COPY backend/pom.xml .
 RUN mvn -q dependency:go-offline
 COPY backend/src ./src
+COPY --from=frontend /frontend/dist ./src/main/resources/static
 RUN mvn -q clean package -DskipTests
 
+# Stage 3: run
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
-ENV JAVA_TOOL_OPTIONS="-Xmx300m -XX:+UseSerialGC"
-CMD ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
