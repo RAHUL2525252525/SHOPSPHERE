@@ -1,3 +1,9 @@
+FROM node:22 AS frontend
+WORKDIR /frontend
+COPY frontend/package*.json ./
+RUN npm install
+COPY frontend/ .
+RUN npm run build
 # Stage 1: build the frontend
 FROM node:22 AS frontend
 WORKDIR /frontend
