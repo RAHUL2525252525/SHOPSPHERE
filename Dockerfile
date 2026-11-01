@@ -13,7 +13,7 @@ COPY backend/pom.xml .
 RUN mvn -q dependency:go-offline
 COPY backend/src ./src
 COPY --from=frontend /frontend/dist ./src/main/resources/static
-RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests > /tmp/mvn.log 2>&1 || (grep -m 12 "ERROR" /tmp/mvn.log; exit 1)
 
 # Stage 3: run
 FROM eclipse-temurin:17-jre
