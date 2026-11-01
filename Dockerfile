@@ -1,12 +1,12 @@
 # Stage 1: build the frontend
-FROM node:20 AS frontend
+FROM node:22 AS frontend
 WORKDIR /frontend
 COPY frontend/package*.json ./
 RUN npm install
 COPY frontend/ .
 RUN npm run build
 
-# Stage 2: build the backend (keep your existing maven image line if it differs)
+# Stage 2: build the backend
 FROM maven:3.9-eclipse-temurin-17 AS build
 WORKDIR /app
 COPY backend/pom.xml .
